@@ -1,0 +1,35 @@
+# Python网络编程
+
+[//]: # (__author__ = "Clark Aaron")
+
+## TCP/IP通信协议简介
+
+* IPS(Interent Protocol Suite,互联网协议族):通用协议标准;
+* TCP协议:在IP协议之上,负责机间可靠通信,保证数据顺序到达,
+* IP协议:通过IP地址实现机间通信,
+  * IP地址: IPV4:32位整数按8位分组后的数字,IPV6:128为整数;
+
+## TCP编程
+
+* Socket是网络编程的一个抽象概念;
+* 创建一个基于TCP连接的Socket:
+  ```
+  import socket
+   
+  Socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+  Socket.connect( (ip,80) )
+
+  s.send(b'GET / HTTP/1.1\r\nHost: www.sina.com.cn\r\nConnection: close\r\n\r\n')
+  ```
+  recv()接受字符,最后使用close()关闭连接;
+
+## UDP编程
+
+* UDP是面向无连接的协议;
+
+## 电子邮件
+
+* 电子邮件首先发给MUA(Mail User Agent,邮件用户代理)再到MTA(Mail Transfer Agent,邮件传输代理)再到MDA(Mail Delivery Agent)最后有MUA获取到目标电脑;
+* 发送时使用SMTP(Simple Mail Transfer Protocol)
+* 接受是使用POP(Post Office Protocol),目前版本是POP3,或IMAP(InternetMessageAccess Protocol);

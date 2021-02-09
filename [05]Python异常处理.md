@@ -1,0 +1,93 @@
+# Python的异常处理
+
+[//]: # (__author__= "Clark Aaron")
+
+## 抛出异常
+
+* 主动抛出异常使用raise语句;
+  
+  ```python
+  def fun(a,b):
+    if b == 0 :
+        raise   ZeroDivisionError
+    else
+        return a/b
+  ```
+
+## 异常检测
+
+在Python中通常使用try来检测代码段是否产生异常，如果产生异常就将产生的异常交给except来捕获并处理异常。
+
+## 异常捕获
+
+* 单个异常捕获:
+  
+  ```python
+  try:
+    <可能出错的异常代码>
+  except ExceptionType as rename:
+    <出现指定错误后的处理方法>
+  ```
+
+* 多个异常捕获:
+
+  ```python
+  try:
+    <可能出错的异常代码>
+  except (ExceptionType0,ExceptionType1) as rename: #错误以元组的形式存在(捕获从左到右的第一个错误)
+    <出现指定错误后的处理方法>
+  ```
+
+* 捕获所有异常:
+
+  ```python
+  try:
+    <可能出错的异常代码>
+  except (ExceptionType0,ExceptionType1) as rename: #错误以元组的形式存在(捕获从左到右的第一个错误)
+    <出现指定错误后的处理方法>
+  except Exception as rename:
+    <出现未指定错误后的处理方法>
+  ```
+
+## 环境清理
+
+在程序中产生异常时，最后可能需要断开数据库的连接，关闭打开的文件，这一工作由Python的finally来完成，该程序段将始终执行。
+
+* 环境清理：
+
+  ```python
+  try:
+    <可能出错的异常代码>
+  except (ExceptionType0,ExceptionType1) as rename: #错误以元组的形式存在(捕获从左到右的第一个错误)
+    <出现指定错误后的处理方法>
+  except Exception as rename:
+    <出现未指定错误后的处理方法>
+  finally:
+    <结束语句块>
+  ```
+
+## 异常类型
+
+异常类型是自定的抽象类型，其标准的异常类型有。
+
+## 日志记录
+
+1. logging:将信息输出问一段文本:终极武器.
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    s = '0'
+    n = int(s)
+    logging.info('n = %d' % n)
+    print(10 / n)
+    ```
+
+4. pdb调试器:
+
+   ```python
+   python -m pdb demo.py
+   ```
+
+   * pdb.set_trace():设置断点(须引入pdb模块),在运行到此处时暂停,并进入pdb调试;
+5. IDE环境调试
