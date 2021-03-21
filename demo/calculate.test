@@ -1,0 +1,7 @@
+>>> from calculate import sum
+>>> sum(1,2)
+3
+>>> sum(2,3)
+5
+>>> sum(5,6)
+11
